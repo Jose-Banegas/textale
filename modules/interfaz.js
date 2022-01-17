@@ -30,6 +30,8 @@ let contenidoParser;
 
 
 
+
+// Imprimir
 export const imprimir = (mensaje) => {
 	relatoText = `${relato.innerHTML}<br>${mensaje}` 
 	relato.innerHTML = `${relatoText}`

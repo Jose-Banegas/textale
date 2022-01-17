@@ -1,11 +1,11 @@
 import {Room} from './roomClass.js';
-
+import {agregarItem} from './inventario.js'
 export const r0_start = new Room("Campos abiertos", "Te encuentras en la entrada del bosque encantado de Finn. En sus profundidades se encuentra el poderosísimo hechicero Mox, quien, al parecer, desea verte. La entrada está al Norte y, junto a ella, hay un cartel.");
 r0_start.boolN = true;
 r0_start.boolS = false;
 r0_start.boolE = false;
 r0_start.boolO = false;
-r0_start.hotspots = [{nombre: "sol", fnMirar() {}, mirar: "es el sol"}, {nombre: "cartel", mirar: "El pequeño cartel reza:<br/>'Entrada al Bosque de Finn. Por favor, si no estás dispuesto/dispuesta a correr una muerte espantosamente desagradable y dolorosa, no entres. Muchas gracias'"}]
+r0_start.hotspots = [{nombre: "sol", fnMirar() {}, mirar: "es el sol"}, {nombre: "cartel", fnMirar(){}, mirar: "El pequeño cartel reza:<br/>'Entrada al Bosque de Finn. Por favor, si no estás dispuesto/dispuesta a correr una muerte espantosamente desagradable y dolorosa, no entres. Muchas gracias'"}]
 
 
 export const r1_entrada = new Room("Entrada del bosque", "El bosque de Finn es un lugar muy bello. Atrás tuyo quedó la entrada del bosque, y adelante puedes vislumbrar un claro.")
@@ -25,21 +25,33 @@ r3_sendero.boolN = false;
 r3_sendero.boolS = true;
 r3_sendero.boolE = false;
 r3_sendero.boolO = false;
-r3_sendero.hotspots = [{nombre: "troll", mirar: "El troll mide el doble de tu tamaño, es calvo y de color verde.", hablar: "- Usted: ¡¿Qué ha hecho?!<br/>- Troll: Maté a este viejo charlatán."}]
+r3_sendero.hotspots = [{nombre: "troll", fnMirar(){}, mirar: "El troll mide el doble de tu tamaño, es calvo y de color verde.", hablar: "- Usted: ¡¿Qué ha hecho?!<br/>- Troll: Maté a este viejo charlatán."}]
 
 export const r4_cascada = new Room("Cascada Mortal", "Estas viendo por primera vez a la Cascada Mortal, famosa en tu pueblo por ser el lugar donde el majestuoso guerrero Orxolot fue asesinado por hermano Pipilix.")
 r4_cascada.boolN = false;
 r4_cascada.boolS = false;
 r4_cascada.boolE = false;
 r4_cascada.boolO = true;
-r4_cascada.hotspots = [{nombre: "cascada", atacar: "Claro, golpear el agua", mirar: "Es una cascada muy bonita, pero peligrosa. Mejor nos alejamos de ella."}, {}]
+r4_cascada.hotspots = [{nombre: "cascada", atacar: "Claro, golpear el agua", fnMirar(){}, mirar: "Es una cascada muy bonita, pero peligrosa. Mejor nos alejamos de ella."}, {}]
 
-export const r5_exteriorCabaña = new Room("Exterior de Cabaña", "Delante tuyo se encuentra una antigua cabaña, en cuya escalinata se encuentra sentado un anciano con cara triste.")
+export const r5_exteriorCabaña = new Room("Exterior de Cabaña", "Delante tuyo se encuentra una antigua cabaña, en cuya escalinata se encuentra sentado un anciano con cara triste. Sobre la pared de la vivienda se encuentra una caña de pescar")
 r5_exteriorCabaña.boolN = false;
 r5_exteriorCabaña.boolS = false;
 r5_exteriorCabaña.boolE = true;
 r5_exteriorCabaña.boolO = false;
-r5_exteriorCabaña.hotspots = [{nombre: "anciano", atacar: "Golpeas al anciano.<br/>-Anciano: ¡Aaaaaaaaajjjjjh! ¡Pensé que este día no podía ponerse peor!", mirar: "Es hombrecillo viejo. Se lo ve muy triste.", hablar: "- Usted: ¿Por qué la cara larga, viejo?<br>- Anciano: Hoy unos jóvenes me golpearon y me lanzaron a la cascada y perdí mis llaves. El cerrajero Mario se fue de vacaciones al Sur hasta el mes entrante, así que quedé afuera de mi casa."}, {}]
+
+r5_exteriorCabaña.hotspots = [
+	{nombre: "caña", fnMirar(){agregarItem("Caña de pescar")}, mirar: ""},
+	{nombre: "anciano", atacar: "Golpeas al anciano.<br/>-Anciano: ¡Aaaaaaaaajjjjjh! ¡Pensé que este día no podía ponerse peor!", fnMirar() {}, mirar: "Es hombrecillo viejo. Se lo ve muy triste.", hablar: "- Usted: ¿Por qué la cara larga, viejo?<br>- Anciano: Hoy unos jóvenes me golpearon y me lanzaron a la cascada y perdí mis llaves. El cerrajero Mario se fue de vacaciones al Sur hasta el mes entrante, así que quedé afuera de mi casa."}, {}
+]
+
+
+
+
+
+
+
+
 
 
 
