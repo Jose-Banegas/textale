@@ -1,5 +1,7 @@
 import {hotspotChecker} from './hotspots.js'
 import {verboCheckGlobal, hablarCheck, agarrarCheck, mirarCheck, atacarCheck} from './verbos.js'
+import { desaparecerHotspot } from './fn.js';
+
 const hoja = document.getElementById("hoja");
 
 const relato = document.createElement("p");
@@ -89,8 +91,21 @@ const cerebro = parse => {
 	}
 
 	//split string
-	
+
+	//buscar
+
 	let cadena = parse.split(" ");
+	
+	if(cadena.length == 1 && cadena[0] == "buscar" && window.lugar.hotspots == undefined)  {		
+		imprimir("Investigas el lugar pero no encuentras nada que te resulte útil. ");
+		
+		} else if(cadena.length == 1 && cadena[0] == "buscar" && window.lugar.hotspots.length > 0)  {		
+		imprimir("Investigando el lugar puedes ver: ");
+		window.lugar.hotspots.map(hot => imprimir(hot.nombre))
+	} 
+	
+		
+	
 
 	if(verboCheckGlobal(cadena[0]) == true && hotspotChecker(cadena[1]) == true) {
 		
@@ -109,10 +124,15 @@ const cerebro = parse => {
 		}}
 
 		if(agarrarCheck(cadena[0]) == true) {
+
 			if(window.lugar.hotspots[window.contador].agarrar == undefined) {
 				imprimir("No es algo que se pueda agarrar.")
-			} else {
+			}
+	
+			 else {
+				window.lugar.hotspots[window.contador].fnAgarrar();
 				imprimir(window.lugar.hotspots[window.contador].agarrar)
+				desaparecerHotspot();
 		}}
 
 		if(atacarCheck(cadena[0]) == true) {
@@ -123,7 +143,7 @@ const cerebro = parse => {
 		}
 
 
-	 
+
 
 
 		} 

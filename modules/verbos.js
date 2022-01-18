@@ -64,3 +64,25 @@ export const verboCheckGlobal = (verbo) => {
 		return false;
 	}
 }
+
+//buscar
+
+// if (cadena[0] == "buscar" && lugar.items[0]) {
+// 	imprimir("Investigando el lugar puedes ver " + " " + lugar.items);
+// } else {
+// 	if (cadena[0] == "buscar" && lugar.items[0] == "") {
+// 		imprimir("Aqui no hay nada")
+// 	}
+// }
+
+// if (cadena[0] == "recoger" && cadena[1] == lugar.items[0]) {
+// 	imprimir("Has recogido la espada")
+// 	lugar.items[0] = "";
+// } else if (cadena[0] == "recoger" && cadena[1] == lugar.items[1]) {
+// 		imprimir("Has recogido el culo")
+// 		lugar.items[1] = "";
+// 	}
+// else if (cadena[0] == "recoger" && cadena[1] == lugar.items[2]) {
+// 		imprimir("Has recogido el pito")
+// 		lugar.items[2] = "";
+// 	}

@@ -1,6 +1,8 @@
+import {imprimir} from './interfaz.js';
+
 const cajaInventario = document.getElementById("inventoryItems");
 
-alert("hola")
+// alert("hola")
 
 window.inventario = ["Caña de pescar", "Alfajor Jorgito"];
 
@@ -13,5 +15,9 @@ const actualizarInventario = () => {
 }
 actualizarInventario()
 
+export const desaparecerHotspot = () => {
+	window.lugar.hotspots[window.contador].agarrar = undefined; 
+	
+}
 
 

@@ -1,4 +1,6 @@
 import {Room} from './roomClass.js';
+import { desaparecerHotspot } from './fn.js';
+
 import {agregarItem} from './inventario.js'
 export const r0_start = new Room("Campos abiertos", "Te encuentras en la entrada del bosque encantado de Finn. En sus profundidades se encuentra el poderosísimo hechicero Mox, quien, al parecer, desea verte. La entrada está al Norte y, junto a ella, hay un cartel.");
 r0_start.boolN = true;
@@ -13,6 +15,7 @@ r1_entrada.boolN = true;
 r1_entrada.boolS = true;
 r1_entrada.boolE = false;
 r1_entrada.boolO = false;
+r1_entrada.hotspots = [{nombre: "rama", fnMirar() {}, mirar: "Es una rama, a lo mejor es útil.", fnAgarrar() {agregarItem("rama")}, agarrar: "Recoges la rama."}]
 
 export const r2_claro = new Room("Claro", "Has llegado a un pequeño claro, en el que los caminos se abren. Hacia el Norte se encuentra el camino hacia las Montañas Nevadas, y hacia el Este y el Oeste se abren dos caminos que te resultan desconocidos.");
 r2_claro.boolN = true;
@@ -41,7 +44,11 @@ r5_exteriorCabaña.boolE = true;
 r5_exteriorCabaña.boolO = false;
 
 r5_exteriorCabaña.hotspots = [
-	{nombre: "caña", fnMirar(){agregarItem("Caña de pescar")}, mirar: ""},
+	{nombre: "caña", agarrar: "Recoges la caña de pescar", fnAgarrar(){
+		agregarItem("Caña de pescar");
+		
+	}, fnMirar() {},
+		 mirar: "Es una caña de pescar"},
 	{nombre: "anciano", atacar: "Golpeas al anciano.<br/>-Anciano: ¡Aaaaaaaaajjjjjh! ¡Pensé que este día no podía ponerse peor!", fnMirar() {}, mirar: "Es hombrecillo viejo. Se lo ve muy triste.", hablar: "- Usted: ¿Por qué la cara larga, viejo?<br>- Anciano: Hoy unos jóvenes me golpearon y me lanzaron a la cascada y perdí mis llaves. El cerrajero Mario se fue de vacaciones al Sur hasta el mes entrante, así que quedé afuera de mi casa."}, {}
 ]
 
